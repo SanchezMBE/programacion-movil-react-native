@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Text, View, Switch, Button, TextInput, Image, Pressable, Alert } from "react-native";
+import { Text, View, TextInput, Image, Pressable, Alert } from "react-native";
 import { useRouter } from "expo-router";
 
 const MainContainer = styled(View)`
@@ -78,7 +78,7 @@ export default function Index() {
         validationMessages.push('▪️ La contraseña debe incluir al menos una mayúscula');
       }
       if (!specialCharactersRegex.test(password)) {
-        validationMessages.push('▪️ La contraseña debe incluir al menos un caracter especial');
+        validationMessages.push('▪️ La contraseña debe incluir al menos un carácter especial');
       }
     }
     return validationMessages.join('\n');
@@ -103,7 +103,7 @@ export default function Index() {
   return (
     <MainContainer>
       <ContentContainer>
-        <Image source={require('../assets/images/image1.jpg')} />
+        <Image source={require('../assets/images/image1.jpg')} testID="image1"/>
         <Input
           placeholder="Ingresa tu correo electrónico" 
           onChangeText={onChangeEmailInput}
@@ -118,7 +118,7 @@ export default function Index() {
         </LoginButton>
       </ContentContainer>
       <RegisterButton onPress={onPressRegister} accessibilityLabel="Botón de registro">
-        <Text>Registrate</Text>
+        <Text>Regístrate</Text>
       </RegisterButton>
     </MainContainer>
   );

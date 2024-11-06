@@ -40,7 +40,7 @@ const RegisterButton = styled(ButtonStyle)`
   border: 2px darkturquoise solid;
 `
 
-export default function Index() {
+export default function Register() {
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
@@ -48,7 +48,9 @@ export default function Index() {
   
   const router = useRouter()
   const onPressNavigation = () => {
-    router.push("/");
+    router.push({
+      pathname: "/",
+    });
   }
 
   const validateEmail = (email: string) => {
@@ -79,7 +81,7 @@ export default function Index() {
         validationMessages.push('▪️ La contraseña debe incluir al menos una mayúscula');
       }
       if (!specialCharactersRegex.test(password)) {
-        validationMessages.push('▪️ La contraseña debe incluir al menos un caracter especial');
+        validationMessages.push('▪️ La contraseña debe incluir al menos un carácter especial');
       }
     }
     return validationMessages.join('\n');
@@ -135,7 +137,7 @@ export default function Index() {
           secureTextEntry={true}
         />
         <RegisterButton onPress={onPressRegister} accessibilityLabel="Botón de registro">
-          <Text>Registrate</Text>
+          <Text>Regístrate</Text>
         </RegisterButton>
       </ContentContainer>
     </MainContainer>
