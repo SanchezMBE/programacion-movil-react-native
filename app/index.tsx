@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Text, View, TextInput, Image, Pressable, Alert } from "react-native";
 import { useRouter } from "expo-router";
+import { getMusicData } from "./api-client";
 
 const MainContainer = styled(View)`
   flex: 1;
@@ -45,6 +46,7 @@ const RegisterButton = styled(ButtonStyle)`
 `
 
 export default function Index() {
+  getMusicData().then(data => console.warn(data))
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -52,6 +54,11 @@ export default function Index() {
   const onPressRegister = () => {
     router.push({
       pathname: "./register",
+    })
+  }
+  const onPressHome = () => {
+    router.push({
+      pathname: "./home",
     })
   }
 
@@ -119,6 +126,9 @@ export default function Index() {
       </ContentContainer>
       <RegisterButton onPress={onPressRegister} accessibilityLabel="Botón de registro">
         <Text>Regístrate</Text>
+      </RegisterButton>
+      <RegisterButton onPress={onPressHome} accessibilityLabel="Botón de registro">
+        <Text>Home</Text>
       </RegisterButton>
     </MainContainer>
   );
