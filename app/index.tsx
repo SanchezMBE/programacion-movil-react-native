@@ -46,7 +46,7 @@ const RegisterButton = styled(ButtonStyle)`
 `
 
 export default function Index() {
-  getMusicData().then(data => console.warn(data))
+  // getMusicData().then(data => console.warn(data))
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
